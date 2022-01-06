@@ -15,7 +15,7 @@ const getApiInfo = async () => {
             id: el.id,
             height: el.height.metric,
             weight: el.weight.metric,
-            years: el.life_span,
+            life_span: el.life_span,
             image: el.image.url,
             temperament: el.temperament,
         };
@@ -82,7 +82,7 @@ router.post('/', async (req, res, next) => { //funciona pero no me pone los temp
         const { name, //traigo los parametros pasados en el body
             height,
             weight,
-            years,
+            life_span,
             image,
             createdInDb,
             temperament
@@ -92,7 +92,7 @@ router.post('/', async (req, res, next) => { //funciona pero no me pone los temp
             name,
             height,
             weight,
-            years,
+            life_span,
             image,
             createdInDb
             //no le paso el temperamento porque ya hice la relacion
