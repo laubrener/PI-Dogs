@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 //importo los hooks de React redux 
 import { useDispatch, useSelector } from "react-redux";
 //importo las acciones que me interesa usar en este componente
-import { filterCreated, getDogs, getTemperaments, orderByName } from "../actions";
+import { filterCreated, getDogs, getTemperaments, filterDogByTemp, orderByName, orderByWeight } from "../actions";
 //importo los componentes que voy a utilizar
 import Card from "./Card";
 import Pagination from "./Pagination";
@@ -40,12 +40,16 @@ export default function Home(){
         dispatch(getDogs());
     };
 
+    function handleWeight(e){
+        dispatch(orderByWeight(e.target.value))
+    };
+
     function handleFilterCreated(e){
         dispatch(filterCreated(e.target.value))
     };
 
     function handleFilterTemps(e){
-        dispatch(getTemperaments(e.target.value))
+        dispatch(filterDogByTemp(e.target.value))
     };
 
     function handleSort(e){
@@ -66,6 +70,10 @@ export default function Home(){
                 <select onChange={e => {handleSort(e)}}>
                     <option value="asc">Ascendente</option>
                     <option value="des">Descendente</option>
+                </select>
+                <select onChange={e => handleWeight(e)}>
+                    <option value="min">Menor Peso</option>
+                    <option value="max">Mayor Peso</option>
                 </select>
                 <select onChange={e => {handleFilterCreated(e)}}>
                     <option value="All">Todas</option>

@@ -11,7 +11,9 @@ export default function Pagination({dogsPerPage, allDogs, pagination}){
         <div className="pagination">
             {
                 pageNumbers?.map(number => {
-                    <button onClick={() => pagination(number)} className="number">{number}</button>
+                    return(
+                        <button onClick={() => pagination(number)} className="number">{number}</button>
+                    )
                 })
             }
         </div>
