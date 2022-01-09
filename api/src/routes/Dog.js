@@ -13,8 +13,10 @@ const getApiInfo = async () => {
         return {
             name: el.name,
             id: el.id,
-            height: el.height.metric,
-            weight: el.weight.metric,
+            heightMin: parseInt(el.height.metric.slice(0, 2).trim()),
+            heightMax: parseInt(el.height.metric.slice(4).trim()),
+            weightMin: parseInt(el.weight.metric.slice(0, 2).trim()),
+            weightMax: parseInt(el.weight.metric.slice(4).trim()),
             life_span: el.life_span,
             image: el.image.url,
             temperament: el.temperament,
@@ -43,9 +45,9 @@ const getAllDogs = async () => {
 }
 
 router.get('/', async (req, res, next) => { 
+    try {
     const { name } = req.query;
     let allDogs = await getAllDogs();
-    try {
         if (name) {
             let dogName = await allDogs.filter(el => el.name.toLowerCase().includes(name.toLocaleLowerCase()));
             dogName.length ?
@@ -80,8 +82,10 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => { //funciona pero no me pone los temperamentos
     try {
         const { name, //traigo los parametros pasados en el body
-            height,
-            weight,
+            heightMin,
+            heightMax,
+            weightMin,
+            weightMax,
             life_span,
             image,
             createdInDb,
@@ -90,8 +94,10 @@ router.post('/', async (req, res, next) => { //funciona pero no me pone los temp
 
         const dogCreated = await Dog.create({ //creo un perro con esos parametros
             name,
-            height,
-            weight,
+            heightMin,
+            heightMax,
+            weightMin,
+            weightMax,
             life_span,
             image,
             createdInDb

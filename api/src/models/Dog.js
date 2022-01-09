@@ -14,12 +14,20 @@ module.exports = (sequelize) => {
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4
     },
-    height: {
-      type: DataTypes.STRING,
+    heightMin: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    weight: {
-      type: DataTypes.STRING,
+    heightMax: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    weightMin: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    weightMax: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     life_span: {
