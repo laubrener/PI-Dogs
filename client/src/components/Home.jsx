@@ -29,11 +29,11 @@ export default function Home(){
 
     useEffect(() => {
         dispatch(getDogs());
-    },[]); //para que no se haga un loop infinito
+    },[dispatch]); //para que no se haga un loop infinito
 
     useEffect(() => {
         dispatch(getTemperaments());
-    },[]);
+    },[dispatch]);
 
     function handleClick(e){
         e.preventDefault();
@@ -41,15 +41,18 @@ export default function Home(){
     };
 
     function handleWeight(e){
-        dispatch(orderByWeight(e.target.value))
+        e.preventDefault();
+        dispatch(orderByWeight(e.target.value));
+        setCurrentPage(1);
+        setOrder(`Ordenado ${e.target.value}`);
     };
 
     function handleFilterCreated(e){
-        dispatch(filterCreated(e.target.value))
+        dispatch(filterCreated(e.target.value));
     };
 
     function handleFilterTemps(e){
-        dispatch(filterDogByTemp(e.target.value))
+        dispatch(filterDogByTemp(e.target.value));
     };
 
     function handleSort(e){
@@ -60,30 +63,31 @@ export default function Home(){
     };
 
     console.log(allDogs);
+    console.log(allTemperaments);
 
     return (
         <div>
-            <Link to='/dog'>Crear nueva raza</Link>
+            <Link to='/dog'>Create new breed</Link>
             <h1>Dog App</h1>
-            <button onClick={(e) => {handleClick(e)}}>Volver a cargar los perros</button>
+            <button onClick={(e) => {handleClick(e)}}>Reload breeds</button>
             <div>
                 <select onChange={e => {handleSort(e)}}>
-                    <option value="asc">Ascendente</option>
-                    <option value="des">Descendente</option>
+                    <option value="asc">Ascendent</option>
+                    <option value="des">Descendent</option>
                 </select>
-                <select onChange={e => handleWeight(e)}>
-                    <option value="min">Menor Peso</option>
-                    <option value="max">Mayor Peso</option>
+                <select onChange={e => {handleWeight(e)}}>
+                    <option value="min">Lower weight</option>
+                    <option value="max">Higher weight</option>
                 </select>
                 <select onChange={e => {handleFilterCreated(e)}}>
-                    <option value="All">Todas</option>
-                    <option value="api">Existentes</option>
-                    <option value="created">Creadas</option>
+                    <option value="All">All</option>
+                    <option value="api">Existent</option>
+                    <option value="created">Created</option>
                 </select>
                 <select onChange={e => {handleFilterTemps(e)}}>
                     { allTemperaments?.map(el => {
                         return(
-                            <option value={el.id}>{el.name}</option>
+                            <option value={el.name}>{el.name}</option>
                         )}
                     )}
                 </select>
@@ -100,7 +104,7 @@ export default function Home(){
                     return (
                         <div>
                             <Link to={'/home/'+ el.id}>
-                                <Card name={el.name} image={el.image} temperament={el.temperament} weight={el.weight} key={el.id}></Card>
+                                <Card name={el.name} image={el.image} temperament={currentDogs[0].createdInDb? currentDogs[0].temperaments.map(el => el.name + (' ')) : currentDogs[0].temperament} weightMin={el.weightMin} weightMax={el.weightMax} key={el.id}></Card>
                             </Link>
                         </div>
                     )

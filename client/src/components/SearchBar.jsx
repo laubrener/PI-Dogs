@@ -13,20 +13,19 @@ export default function SearchBar(){
         console.log(name);
     };
 
-    function handleSubmit(e){
+    function handleClick(e){
         e.preventDefault();
         dispatch(getDogsByName(name));//el nombre que el usuario escribio
-        console.log(name);
         setName('');
     };
 
     return(
         <div>
             <input type="text" 
-            placeholder="Buscar..."
+            placeholder="Type here to search"
             onChange={e => {handleInputChange(e)}}
             />
-            <button type="submit" onClick={e => {handleSubmit(e)}}>Buscar</button>
+            <button type="submit" onClick={e => {handleClick(e)}}>Search</button>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import { GET_DOGS, 
     GET_TEMPERAMENTS, 
     GET_DOGS_BY_NAME, 
+    GET_DETAIL, 
     FILTER_DOG_BY_TEMP, 
     FILTER_CREATED, 
     ORDER_BY_NAME, 
@@ -11,6 +12,7 @@ const initialState = {
     allDogs: [],
     temperaments: [],
     allTemps: [],
+    detail: []
 }
 
 function rootReducer (state = initialState, action){
@@ -37,10 +39,16 @@ function rootReducer (state = initialState, action){
                 ...state,
             }
         case FILTER_DOG_BY_TEMP:
-            const tempFilter = state.allTemps;
-            tempFilter.filter(el => el.id === action.payload);
+            const breeds = state.allDogs;
+            let tempFilter = breeds.filter(el => {
+                if (typeof el.temperament === 'string') return el.temperament.includes(action.payload)
+                if (Array.isArray(el.temperament)){
+                    let temps = el.temperament.map(el => el.name);
+                    return temps.includes(action.payload);
+                }
+                return true
+                });
             console.log(action.payload)
-            console.log(tempFilter)
             return{
                 ...state,
                 dogs: tempFilter
@@ -79,27 +87,22 @@ function rootReducer (state = initialState, action){
                 dogs: sortedArr
             }   
         case ORDER_BY_WEIGHT:
-            let promedio = allDogs.map(el => {
-                let arr = el.weight.split('-');
-                promedio = (arr[0] + arr[1])/2
-                return(promedio);
-            })
-            console.log(promedio);
             const orderByWeight = action.payload === 'min' ?
             state.dogs.sort(function(a, b) {
-                if (a.name > b.name){
+                
+                if ((a.weightMin + a.weightMax) > (b.weightMin + b.weightMax)){
                     return 1;
                 }
-                if (b.name > a.name){
+                if ((b.weightMin + b.weightMax) > (a.weightMin + a.weightMax)){
                     return -1;
                 }
                 return 0
             }) :
             state.dogs.sort(function(a, b) {
-                if (a.name > b.name){
+                if ((a.weightMin + a.weightMax) > (b.weightMin + b.weightMax)){
                     return -1;
                 }
-                if (b.name > a.name){
+                if ((b.weightMin + b.weightMax) > (a.weightMin + a.weightMax)){
                     return 1;
                 }
                 return 0
@@ -108,6 +111,11 @@ function rootReducer (state = initialState, action){
                 ...state,
                 dogs: orderByWeight
             }   
+        case GET_DETAIL:
+            return{
+                ...state,
+                detail: action.payload
+            }
         default:
             return state;
     }
