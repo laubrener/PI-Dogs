@@ -1,0 +1,19 @@
+
+.number {
+    margin-top: 2rem;
+    margin-left: 0.25rem;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: transparent;
+    border-radius: 0.25rem;
+    color: gray;
+    background-color: #e9edc9;
+    cursor: pointer;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.25s; 
+}
+
+.number:hover {
+    background-color: silver;
+}

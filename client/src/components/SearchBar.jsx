@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getDogsByName } from "../actions";
+import styles from './SearchBar.module.css';
+import { IoSearchOutline } from 'react-icons/io5';
 
 export default function SearchBar(){
     const dispatch = useDispatch();
@@ -20,12 +22,14 @@ export default function SearchBar(){
     };
 
     return(
-        <div>
+        <div className={styles.searchBar}>
             <input type="text" 
             placeholder="Type here to search"
             onChange={e => {handleInputChange(e)}}
             />
-            <button type="submit" onClick={e => {handleClick(e)}}>Search</button>
+            <button type="submit" onClick={e => {handleClick(e)}}>
+                <IoSearchOutline />
+            </button>
         </div>
     )
 }

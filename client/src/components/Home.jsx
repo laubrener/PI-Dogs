@@ -10,6 +10,9 @@ import { filterCreated, getDogs, getTemperaments, filterDogByTemp, orderByName, 
 import Card from "./Card";
 import Pagination from "./Pagination";
 import SearchBar from "./SearchBar";
+import styles from '../styles/index.css';
+import { IoAddSharp } from 'react-icons/io5';
+import { IoReloadOutline } from 'react-icons/io5'; 
 
 
 export default function Home(){
@@ -67,42 +70,38 @@ export default function Home(){
 
     return (
         <div>
-            <Link to='/dog'>Create new breed</Link>
-            <h1>Dog App</h1>
-            <button onClick={(e) => {handleClick(e)}}>Reload breeds</button>
-            <div>
-                <select onChange={e => {handleSort(e)}}>
-                    <option value="asc">Ascendent</option>
-                    <option value="des">Descendent</option>
-                </select>
-                <select onChange={e => {handleWeight(e)}}>
-                    <option value="min">Lower weight</option>
-                    <option value="max">Higher weight</option>
-                </select>
-                <select onChange={e => {handleFilterCreated(e)}}>
-                    <option value="All">All</option>
-                    <option value="api">Existent</option>
-                    <option value="created">Created</option>
-                </select>
-                <select onChange={e => {handleFilterTemps(e)}}>
-                    { allTemperaments?.map(el => {
-                        return(
-                            <option value={el.name}>{el.name}</option>
-                        )}
-                    )}
-                </select>
-                <div>
-                    <Pagination
-                            dogsPerPage={dogsPerPage}
-                            allDogs={allDogs.length}
-                            pagination={pagination}
-                            />
-                </div>
+            <div className='navBar'>
+                <Link to='/dog'><button className="btnHome"><IoAddSharp/></button></Link>
+                <button className="btnHome2" onClick={(e) => {handleClick(e)}}><IoReloadOutline/></button>
+                <h1>Dogs</h1>
                 <SearchBar></SearchBar>
+                <div>
+                    <select className="sort" onChange={e => {handleSort(e)}}>
+                        <option value="asc">Ascendent</option>
+                        <option value="des">Descendent</option>
+                    </select>
+                    <select className="weightSort" onChange={e => {handleWeight(e)}}>
+                        <option value="min">Lower weight</option>
+                        <option value="max">Higher weight</option>
+                    </select>
+                    <select className="created" onChange={e => {handleFilterCreated(e)}}>
+                        <option value="All">All</option>
+                        <option value="api">Existent</option>
+                        <option value="created">Created</option>
+                    </select>
+                    <select className="temps" onChange={e => {handleFilterTemps(e)}}>
+                        { allTemperaments?.map(el => {
+                            return(
+                                <option value={el.name}>{el.name}</option>
+                                )}
+                                )}
+                    </select>
+                </div>
+            </div> 
             {
                 currentDogs?.map(el => {
                     return (
-                        <div>
+                        <div id="cards">
                             <Link to={'/home/'+ el.id}>
                                 <Card name={el.name} image={el.image} temperament={currentDogs[0].createdInDb? currentDogs[0].temperaments.map(el => el.name + (' ')) : currentDogs[0].temperament} weightMin={el.weightMin} weightMax={el.weightMax} key={el.id}></Card>
                             </Link>
@@ -110,7 +109,13 @@ export default function Home(){
                     )
                 })
             }
-            </div>
+            <div className="pagination">
+                    <Pagination
+                            dogsPerPage={dogsPerPage}
+                            allDogs={allDogs.length}
+                            pagination={pagination}
+                            />
+                </div>
         </div>
     )
 }

@@ -1,0 +1,142 @@
+/* estilos globales */
+@import './normalize.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@300;400;500;700&display=swap');
+
+
+:root {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-image: url('https://thumbs.dreamstime.com/b/panorama-hermoso-del-paisaje-verano-prado-y-flores-cielo-azul-110363522.jpg');
+    text-decoration: none;
+    
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#cards {
+    text-decoration: none;
+    display: inline-block;
+    flex-direction: row;
+}
+
+.btn {
+    position: relative;
+    background-color: white;
+    border-radius: 1.5em;
+    color: #495057;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    padding: 0.5em 1em;
+    min-height: 2.5em;
+    min-width: 6em;
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
+    margin: 0.75rem;
+    cursor: pointer;
+
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.25s;
+}
+.btn:hover {
+    background-color: #e9edc9;
+}
+
+.error {
+    font-size: small;
+    font-style: italic;
+    color: #e63946;
+    position: relative;
+}
+
+.navBar {
+    box-sizing: border-box;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    text-decoration: none;
+
+}
+
+.navBar h1 {
+    font-size: 26px;
+    margin: 1rem;
+    color: #343a40;
+}
+
+Link{
+    margin-right: auto;
+    margin: 1rem;
+}
+
+.sort, .weightSort, .created, .temps {
+    margin: 0.3rem;
+    padding: 0.25rem;
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    font-size: 14px;
+    color: gray
+
+}
+
+.btnHome {
+    border-radius: 50%;
+    background-color: white;
+    color: gray;
+    font-size: 2rem;
+    padding: 0.25em;
+    height: 3rem;
+    width: 3rem;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    margin: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.25s; 
+
+    align-items: flex-start;
+}
+
+.btnHome:hover {
+    background-color: #e9edc9;
+}
+
+.btnHome2 {
+    border-radius: 50%;
+    background-color: white;
+    color: gray;
+    font-size: 1.5rem;
+    padding: 0.25em;
+    height: 3rem;
+    width: 4rem;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    margin: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.25s; 
+
+    align-items: flex-start;
+}
+
+.btnHome2:hover {
+    background-color: #e9edc9;
+}
