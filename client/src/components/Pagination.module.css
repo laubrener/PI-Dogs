@@ -2,18 +2,27 @@
 .number {
     margin-top: 2rem;
     margin-left: 0.25rem;
+    margin-bottom: 2rem;
 
     border-style: solid;
     border-width: thin;
     border-color: transparent;
     border-radius: 0.25rem;
-    color: gray;
+    color: var(--color-green);
     background-color: #e9edc9;
     cursor: pointer;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.25);
+    font-weight: 500;
     transition: background-color 0.25s; 
 }
 
 .number:hover {
-    background-color: silver;
+    color: white;
+    background-color: var(--color-grey);
 }
+
+.number:focus {
+    outline: none;
+    color: #fff;
+    background: darkgoldenrod;
+  }

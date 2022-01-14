@@ -1,0 +1,83 @@
+
+
+.landing {
+    background-color: var(--color-green);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5);
+
+}
+
+.find {
+    font-size: 53px;
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 6.7rem;
+    margin-left: -12rem;
+}
+
+.fav {
+    font-size: 50px;
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: -2.5rem;
+    margin-left: -13rem; 
+    font-style: italic;
+}
+
+.landing h1 {
+    text-transform: uppercase;
+    font-size: 100px;
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: -25rem;
+    margin-left: -12rem;
+}
+
+.landing img {
+    grid-column: 2;
+    margin: 1rem;
+    position: relative;
+}
+
+.landing p {
+    text-align: left;
+    padding: 7rem;
+    grid-column: 1;
+    grid-row: 4;
+    margin-top: -24rem;
+    font-size: 18px;
+
+}
+
+.landing button {
+    background-color: white;
+    border-radius: .5em;
+    color: var(--color-green);
+    text-transform: uppercase;
+    font-size: .75rem;
+    font-weight: 700;
+    padding: 0.5em 1em;
+    min-height: 2.5em;
+    min-width: 6em;
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
+    margin: 0.75rem;
+    cursor: pointer;
+
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.25s;
+    grid-column: 1;
+    grid-row: 5;
+    margin-right: 33rem;
+    margin-top: 10rem;
+    position: relative;
+    z-index: 1;
+    
+}
+
+.landing button:hover {
+    color: white;
+    background-color: var(--color-light-green);
+}

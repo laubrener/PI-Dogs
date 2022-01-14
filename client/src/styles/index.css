@@ -7,10 +7,16 @@
 :root {
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
+    --color-green:#4f5d2f;
+    --color-light-green:#6a994e;
+    --color-grey:#495057;
+    --color-errors:#e63946;
+    --color-dark-grey:#343a40;
 }
 
 body {
-    background-image: url('https://thumbs.dreamstime.com/b/panorama-hermoso-del-paisaje-verano-prado-y-flores-cielo-azul-110363522.jpg');
+    background-color: var(--color-green);
+    /* background-image: url('https://thumbs.dreamstime.com/b/panorama-hermoso-del-paisaje-verano-prado-y-flores-cielo-azul-110363522.jpg'); */
     text-decoration: none;
     
 }
@@ -20,18 +26,20 @@ input {
 }
 
 #cards {
-    text-decoration: none;
+    text-decoration: none !important;
     display: inline-block;
     flex-direction: row;
+    grid-column: 1 / span 3;
 }
 
 .btn {
     position: relative;
     background-color: white;
-    border-radius: 1.5em;
-    color: #495057;
+    border-radius: .5em;
+    color: var(--color-green);
     text-transform: uppercase;
-    font-size: 0.75rem;
+    font-size: .75rem;
+    font-weight: 700;
     padding: 0.5em 1em;
     min-height: 2.5em;
     min-width: 6em;
@@ -41,39 +49,40 @@ input {
     margin: 0.75rem;
     cursor: pointer;
 
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
     transition: background-color 0.25s;
 }
 .btn:hover {
-    background-color: #e9edc9;
+    color: white;
+    background-color: var(--color-light-green);
 }
 
 .error {
     font-size: small;
     font-style: italic;
-    color: #e63946;
+    color: var(--color-errors);
     position: relative;
 }
 
 .navBar {
     box-sizing: border-box;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2); */
     margin: 0;
     padding: 0;
-    background-color: whitesmoke;
+    background-color: transparent;
     height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
+    padding: 10px;
     text-decoration: none;
 
 }
 
 .navBar h1 {
-    font-size: 26px;
+    font-size: 30px;
     margin: 1rem;
-    color: #343a40;
+    color: white;
 }
 
 Link{
@@ -87,27 +96,29 @@ Link{
     border-radius: 1rem;
     border-style: solid;
     border-width: 1px;
-    border-color: gray;
+    border-color: white;
     font-size: 14px;
-    color: gray
+    color: white;
+    background-color: var(--color-green);
 
 }
 
 .btnHome {
     border-radius: 50%;
-    background-color: white;
-    color: gray;
+    background-color: var(--color-green);
+    color: white;
     font-size: 2rem;
-    padding: 0.25em;
+    padding: 0.23em;
     height: 3rem;
     width: 3rem;
 
     border-style: solid;
     border-width: 1px;
     border-color: transparent;
-    margin: 1rem;
+    margin: .5rem;
     cursor: pointer;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-color: white;
+    /* box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.5); */
     transition: background-color 0.25s; 
 
     align-items: flex-start;
@@ -119,19 +130,20 @@ Link{
 
 .btnHome2 {
     border-radius: 50%;
-    background-color: white;
-    color: gray;
+    background-color: var(--color-green);
+    color: white;
     font-size: 1.5rem;
-    padding: 0.25em;
+    padding: 0.5em;
     height: 3rem;
-    width: 4rem;
+    width: 3rem;
 
     border-style: solid;
     border-width: 1px;
     border-color: transparent;
-    margin: 1rem;
+    margin: -1.75rem;
     cursor: pointer;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-color: white;
+    /* box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.5); */
     transition: background-color 0.25s; 
 
     align-items: flex-start;
@@ -139,4 +151,11 @@ Link{
 
 .btnHome2:hover {
     background-color: #e9edc9;
+}
+
+.loading {
+    font-size: 20px;
+    color: white;
+    margin: auto;
+    margin-top: 20%;
 }

@@ -4,8 +4,8 @@ import styles from './Pagination.module.css';
 export default function Pagination({dogsPerPage, allDogs, pagination}){
     let pageNumbers = [];
 
-    for (let i = 1; i < Math.ceil(allDogs/dogsPerPage); i++) {
-        pageNumbers.push(i);
+    for (let i = 0; i < Math.ceil(allDogs/dogsPerPage); i++) {
+        pageNumbers.push(i + 1);
     }
 
     return(

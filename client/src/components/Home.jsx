@@ -73,7 +73,7 @@ export default function Home(){
             <div className='navBar'>
                 <Link to='/dog'><button className="btnHome"><IoAddSharp/></button></Link>
                 <button className="btnHome2" onClick={(e) => {handleClick(e)}}><IoReloadOutline/></button>
-                <h1>Dogs</h1>
+                <h1>ClaBim</h1>
                 <SearchBar></SearchBar>
                 <div>
                     <select className="sort" onChange={e => {handleSort(e)}}>
@@ -99,7 +99,8 @@ export default function Home(){
                 </div>
             </div> 
             {
-                currentDogs?.map(el => {
+                currentDogs.length?
+                currentDogs.map(el => {
                     return (
                         <div id="cards">
                             <Link to={'/home/'+ el.id}>
@@ -108,6 +109,7 @@ export default function Home(){
                         </div>
                     )
                 })
+                : <p className="loading">Loading...</p>
             }
             <div className="pagination">
                     <Pagination

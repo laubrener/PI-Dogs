@@ -18,7 +18,8 @@ export default function SearchBar(){
     function handleClick(e){
         e.preventDefault();
         dispatch(getDogsByName(name));//el nombre que el usuario escribio
-        setName('');
+        setName(''); //borra el input
+    
     };
 
     return(

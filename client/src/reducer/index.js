@@ -89,7 +89,9 @@ function rootReducer (state = initialState, action){
         case ORDER_BY_WEIGHT:
             const orderByWeight = action.payload === 'min' ?
             state.dogs.sort(function(a, b) {
-                
+                if (!a.weightMin || !a.weightMax) { //para que me ponga al final todos los que np tienen weight
+                    return 1
+                }
                 if ((a.weightMin + a.weightMax) > (b.weightMin + b.weightMax)){
                     return 1;
                 }
