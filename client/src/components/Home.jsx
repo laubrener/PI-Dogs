@@ -10,6 +10,7 @@ import { filterCreated, getDogs, getTemperaments, filterDogByTemp, orderByName, 
 import Card from "./Card";
 import Pagination from "./Pagination";
 import SearchBar from "./SearchBar";
+//estilos
 import styles from '../styles/index.css';
 import { IoAddSharp } from 'react-icons/io5';
 import { IoReloadOutline } from 'react-icons/io5'; 
@@ -19,7 +20,8 @@ export default function Home(){
     const dispatch = useDispatch();
     const allDogs = useSelector((state) => state.dogs); //traeme en esta constante todo lo que esta en el estado de dogs
     const allTemperaments = useSelector((state) => state.temperaments);
-    const [order, setOrder] = useState('');
+    const [order, setOrder] = useState(''); //el estado local arranca vacio, luego va a estar ordenado
+    
     const [currentPage, setCurrentPage] = useState(1); //guarde en un estado local la pagina actual que es 1
     const [dogsPerPage, setDogsPerPage] = useState(8); //guarde cuantos perros quiero por pagina
     const indexOfLastDog = currentPage * dogsPerPage; // 8
@@ -47,7 +49,7 @@ export default function Home(){
         e.preventDefault();
         dispatch(orderByWeight(e.target.value));
         setCurrentPage(1);
-        setOrder(`Ordenado ${e.target.value}`);
+        setOrder(`Ordenado ${e.target.value}`);//el estado local cambia a ordenado
     };
 
     function handleFilterCreated(e){
@@ -62,7 +64,7 @@ export default function Home(){
         e.preventDefault();
         dispatch(orderByName(e.target.value));
         setCurrentPage(1);
-        setOrder(`Ordenado ${e.target.value}`);
+        setOrder(`Ordenado ${e.target.value}`); //modifica el renderizado
     };
 
     console.log(allDogs);
@@ -93,8 +95,8 @@ export default function Home(){
                         { allTemperaments?.map(el => {
                             return(
                                 <option value={el.name}>{el.name}</option>
-                                )}
-                                )}
+                            )}
+                        )}
                     </select>
                 </div>
             </div> 
@@ -104,7 +106,15 @@ export default function Home(){
                     return (
                         <div id="cards">
                             <Link to={'/home/'+ el.id}>
-                                <Card name={el.name} image={el.image} temperament={currentDogs[0].createdInDb? currentDogs[0].temperaments.map(el => el.name + (' ')) : currentDogs[0].temperament} weightMin={el.weightMin} weightMax={el.weightMax} key={el.id}></Card>
+                                <Card key={el.id}
+                                    name={el.name} 
+                                    image={el.image} 
+                                    temperament={
+                                        el.createdInDb? el.temperaments.map(el => el.name + (' ')) : el.temperament} 
+                                    weightMin={el.weightMin} 
+                                    weightMax={el.weightMax} 
+                                    >
+                                </Card>
                             </Link>
                         </div>
                     )

@@ -1,11 +1,9 @@
-
-
 .landing {
     background-color: var(--color-green);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5);
-
+    color: white;
 }
 
 .find {
@@ -20,7 +18,7 @@
     font-size: 50px;
     grid-column: 1;
     grid-row: 2;
-    margin-top: -2.5rem;
+    margin-top: -2.2rem;
     margin-left: -13rem; 
     font-style: italic;
 }
@@ -78,6 +76,5 @@
 }
 
 .landing button:hover {
-    color: white;
     background-color: var(--color-light-green);
 }

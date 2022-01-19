@@ -28,7 +28,12 @@ export default function DogDetail(props){
                         <h4>Height: {myDog[0].heightMin} - {myDog[0].heightMax}</h4>
                         <h4>Weight: {myDog[0].weightMin} - {myDog[0].weightMax}</h4>
                         <h4>Life span: {myDog[0].life_span}</h4>
-                        <p>Temperaments: {myDog[0].createdInDb? myDog[0].temperaments.map(el => el.name + (' ')) : myDog[0].temperament + ' '}</p>
+                        <p>Temperaments: {myDog[0].createdInDb? 
+                            myDog[0].temperaments.map(el => el.name + (' ')) : 
+                            myDog[0].temperament? 
+                                myDog[0].temperament + ' ' : 
+                                " None"
+                        }</p>
                     </div>
                 </div>
                 : <p className="loading">Loading...</p>

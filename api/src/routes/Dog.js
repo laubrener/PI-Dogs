@@ -79,7 +79,7 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-router.post('/', async (req, res, next) => { //funciona pero no me pone los temperamentos
+router.post('/', async (req, res, next) => { 
     try {
         const { name, //traigo los parametros pasados en el body
             heightMin,

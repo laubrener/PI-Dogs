@@ -55,6 +55,7 @@
     align-items: center;
     top: -17rem;
     grid-column: 2;
+    margin: 1rem;
 }
 
 .detail img {

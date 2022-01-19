@@ -1,8 +1,9 @@
 
 .number {
     margin-top: 2rem;
-    margin-left: 0.25rem;
+    margin-left: 0.5rem;
     margin-bottom: 2rem;
+    padding: .25rem;
 
     border-style: solid;
     border-width: thin;

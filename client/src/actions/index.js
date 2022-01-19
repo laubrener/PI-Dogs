@@ -9,20 +9,34 @@ export const FILTER_CREATED = 'FILTER_CREATED';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
 
+// export function getDogs(){
+//     try{
+//         return async function(dispatch){
+//             let json = await axios.get('http://localhost:3001/dogs');
+//             return dispatch({
+//                 type: GET_DOGS,
+//                 payload: json.data
+//             })
+//         }
+//     }catch(error){
+//         console.log(error);
+//     }
+    
+// };
+
 export function getDogs(){
-    try{
-        return async function(dispatch){
-            let json = await axios.get('http://localhost:3001/dogs');
+    return function(dispatch){
+        axios.get('http://localhost:3001/dogs')
+        .then(json => {
             return dispatch({
                 type: GET_DOGS,
                 payload: json.data
             })
-        }
-    }catch(error){
-        console.log(error);
+        })
+        .catch(err => console.log(err))
     }
-    
 };
+
 
 export function getTemperaments(){
     try{

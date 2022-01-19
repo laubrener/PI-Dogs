@@ -43,10 +43,7 @@ export default function DogCreate(){
     const navigate = useNavigate();
     const temperaments = useSelector((state) => state.temperaments);
     const [errors, setErrors] = useState({});
-    // Nombre
-    // Altura (Diferenciar entre altura mínima y máxima)
-    // Peso (Diferenciar entre peso mínimo y máximo)
-    // Años de vida
+ 
     const [input, setInput] = useState({
         name:'',
         heightMin:'',
@@ -103,6 +100,7 @@ export default function DogCreate(){
     }, []);
 
     return(
+        <div> <Link to='/home' ><button className="btn" style={{'margin-left':'77rem'}}>Go back</button></Link>
         <div className={styles.form}>
             <h1 className={styles.title}>My breed</h1>
             <form onSubmit={(e) => {handleSubmit(e)}}>
@@ -198,14 +196,15 @@ export default function DogCreate(){
                 </select>
 
                 <button className="btn" type="submit">Create breed</button>
-                <Link to='/home' ><button className="btn">Go back</button></Link>
+                
             </form>
             {input.temperament.map(el => 
-                <div className='divTemp'key={el}>
+                <div className={styles.divTemp}key={el}>
                     <p>{el}</p>
                     <button className='xButton' onClick={() => handleDelete(el)}>x</button>
                 </div>
                 )}
+        </div>
         </div>
     )
 }

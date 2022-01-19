@@ -1,44 +1,37 @@
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .form {
-    flex-wrap: wrap;
-    justify-content: center;
 
-    width: 500px;
+    width: 600px;
     padding: 40px;
     margin: auto;
     margin-top: 1rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
     border-color: black;
     color: var(--color-green);
 
     font-size: 16px;
     margin-bottom: 20px;
-    box-sizing: border-box;
     box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.5);
-    position: relative;
     background-color: white;
-    transition: 0.25s;
-}
-
-.form input {
-    position: relative;
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border-color: var(--color-green);
-    margin-bottom: 16px;
-    border: 1px;
-    color: var(--color-green);
+    font-weight: 700;
 }
 
 .title {
     color: var(--color-green);
     margin-top: 0;
-    position: relative;
+
 }
 
-.input {
-    position: relative; 
+.form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    border-color: var(--color-green);
     color: var(--color-green);
 
 }
@@ -57,6 +50,16 @@
     font-weight: 500;
 }
 
-.btn {
-    position: relative;
+.divTemp {
+    margin: 1rem;
+    display: inline-table;
+    font-weight: 700;
+}
+
+.divTemp button {
+    margin: .25rem;
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    color: var(--color-green);
 }

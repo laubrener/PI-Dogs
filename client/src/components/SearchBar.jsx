@@ -19,7 +19,6 @@ export default function SearchBar(){
         e.preventDefault();
         dispatch(getDogsByName(name));//el nombre que el usuario escribio
         setName(''); //borra el input
-    
     };
 
     return(

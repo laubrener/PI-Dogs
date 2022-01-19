@@ -37,7 +37,6 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING,
       allowNull: true,
-      defaultValue: 'https://www.google.com/url?sa=i&url=http%3A%2F%2Fclipart-library.com%2Fhuellas-de-perros.html&psig=AOvVaw3eINvadWU1mY13pV5Vtf92&ust=1641307911769000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCOiKqMvqlfUCFQAAAAAdAAAAABAI'
     },
     createdInDb: {
       type:DataTypes.BOOLEAN,

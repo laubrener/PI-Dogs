@@ -42,11 +42,11 @@ function rootReducer (state = initialState, action){
             const breeds = state.allDogs;
             let tempFilter = breeds.filter(el => {
                 if (typeof el.temperament === 'string') return el.temperament.includes(action.payload)
-                if (Array.isArray(el.temperament)){
-                    let temps = el.temperament.map(el => el.name);
+                if (Array.isArray(el.temperaments)){
+                    let temps = el.temperaments.map(el => el.name);
                     return temps.includes(action.payload);
                 }
-                return true
+                return false
                 });
             console.log(action.payload)
             return{

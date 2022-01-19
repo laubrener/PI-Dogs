@@ -1,6 +1,7 @@
 
 .card {
     text-decoration: none;
+    color: inherit;
     border-style: solid;
     border-width: 1px;
     border-color: transparent;
@@ -45,7 +46,7 @@
 
 .card p {
     grid-column: 1;
-    text-decoration: none !important;
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     text-align: center;
