@@ -23,7 +23,8 @@ export default function SearchBar(){
 
     return(
         <div className={styles.searchBar}>
-            <input type="text" 
+            <input type="text"
+            value={name} 
             placeholder="Type here to search"
             onChange={e => {handleInputChange(e)}}
             />

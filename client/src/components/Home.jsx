@@ -11,7 +11,6 @@ import Card from "./Card";
 import Pagination from "./Pagination";
 import SearchBar from "./SearchBar";
 //estilos
-import styles from '../styles/index.css';
 import { IoAddSharp } from 'react-icons/io5';
 import { IoReloadOutline } from 'react-icons/io5'; 
 
@@ -92,9 +91,9 @@ export default function Home(){
                         <option value="created">Created</option>
                     </select>
                     <select className="temps" onChange={e => {handleFilterTemps(e)}}>
-                        { allTemperaments?.map(el => {
+                        { allTemperaments?.map((el, i) => {
                             return(
-                                <option value={el.name}>{el.name}</option>
+                                <option key={i} value={el.name}>{el.name}</option>
                             )}
                         )}
                     </select>
@@ -104,9 +103,9 @@ export default function Home(){
                 currentDogs.length?
                 currentDogs.map(el => {
                     return (
-                        <div id="cards">
+                        <div key={el.id} id="cards">
                             <Link to={'/home/'+ el.id}>
-                                <Card key={el.id}
+                                <Card 
                                     name={el.name} 
                                     image={el.image} 
                                     temperament={

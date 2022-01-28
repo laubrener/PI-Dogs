@@ -6,7 +6,6 @@
 
 :root {
     font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
     --color-green:#4f5d2f;
     --color-light-green:#9ae19d;
     --color-grey:#495057;
@@ -17,8 +16,11 @@
 body {
     background-color: var(--color-green);
     /* background-image: url('https://thumbs.dreamstime.com/b/panorama-hermoso-del-paisaje-verano-prado-y-flores-cielo-azul-110363522.jpg'); */
-    text-decoration: none;
     
+}
+
+a {
+    text-decoration: none;
 }
 
 input {
@@ -26,7 +28,6 @@ input {
 }
 
 #cards {
-    text-decoration: none;
     display: inline-block;
     flex-direction: row;
     grid-column: 1 / span 3;
